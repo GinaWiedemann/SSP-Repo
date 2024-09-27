@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Diese Klasse realisiert ein Stein-Schere-Papier Spiel. Der Benutzer waehlt
- * ueber die Konsole eines der drei Symbole. Gespielt wird gegen den Computer,
+ * Diese Klasse realisiert ein Stein-Schere-Papier Spiel. Das klassische Spiel wurde um ein weiteres Symbol ergaenzt und folgt den Standardregeln. 
+ * Der Benutzer waehlt ueber die Konsole eines der vier Symbole. Gespielt wird gegen den Computer,
  * fuer diesen wird ein Symbol automatisch festgelegt. Der Gewinner des Matches
  * wird ermittelt und auf der Konsole ausgegeben.
  * Beim Erzeugen eines Objektes wird die Anzahl der Matches oder Runden
@@ -22,6 +22,7 @@ public class SteinScherePapier {
 	private static final int STEIN = 1;
 	private static final int SCHERE = 2;
 	private static final int PAPIER = 3;
+	private static final int BRUNNEN = 4;
 
 	private int anzahlRunden;
 
@@ -53,14 +54,21 @@ public class SteinScherePapier {
 		switch (auswahl) {
 			case "1,1":
 			case "2,2":
-			case "3,3": System.out.println("Unentschieden."); break;
+			case "3,3": 
+			case "4,4": System.out.println("Unentschieden."); break;
 			case "1,2":
 			case "2,3":
-			case "3,1": System.out.println("Gewonnen!"); break;
+			case "3,1":
+			case "3,4":
+			case "4,1":
+			case "4,2": System.out.println("Gewonnen!"); break;
 			case "1,3":
+			case "1,4":
 			case "2,1":
-			case "3,2": System.out.println("Verloren!"); break;
-			default: System.out.println("Eingabe muss 1, 2 oder 3 sein. Bitte versuchen Sie es erneut!"); break;
+			case "2,4":
+			case "3,2":
+			case "4,3": System.out.println("Verloren!"); break;
+			default: System.out.println("Eingabe muss 1, 2, 3 oder 4 sein. Bitte versuchen Sie es erneut!"); break;
 		}
 	}
 
@@ -74,10 +82,10 @@ public class SteinScherePapier {
 		while (gespielteRunden < anzahlRunden) {
 
 			// Auswahl des Benutzers
-			int benutzerAuswahl = intGanzzahl("\nBitte waehlen Sie Stein(1), Schere(2), Papier(3): ");
+			int benutzerAuswahl = intGanzzahl("\nBitte waehlen Sie Stein(1), Schere(2), Papier(3), Brunnen(4): ");
 
 			// Auswahl des Computers
-			int computerAuswahl = new Random().nextInt(3) + 1;
+			int computerAuswahl = new Random().nextInt(4) + 1;
 
 			// Ausgabe der gewahlten Symbole
 			System.out.println("\nIhre Auswahl: " + auswahlErmitteln(benutzerAuswahl));
@@ -109,6 +117,9 @@ public class SteinScherePapier {
 		else if (auswahl == PAPIER) {
 			return "Papier (3)";
 		}
+		else if (auswahl == BRUNNEN) {
+			return "Brunnen (4)";
+		}
 		else {
 			return "Ungueltige Auswahl (" + auswahl + ")";
 		}
@@ -116,7 +127,7 @@ public class SteinScherePapier {
 
 	// Start des Spiels
 	public static void main(String[] args) {
-		SteinScherePapier steinScherePapier = new SteinScherePapier(3);
+		SteinScherePapier steinScherePapier = new SteinScherePapier(4);
 		steinScherePapier.start();
 	}
 
