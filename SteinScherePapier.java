@@ -53,13 +53,13 @@ public class SteinScherePapier {
 		switch (auswahl) {
 			case "1,1":
 			case "2,2":
-			case "3,3": System.out.println("Unentschieden"); break;
+			case "3,3": System.out.println("Unentschieden."); break;
 			case "1,2":
 			case "2,3":
-			case "3,1": System.out.println("Herzlichen Glueckwunsch! Sie haben gewonnen!"); break;
+			case "3,1": System.out.println("Gewonnen!"); break;
 			case "1,3":
 			case "2,1":
-			case "3,2": System.out.println("Sie haben leider verloren!"); break;
+			case "3,2": System.out.println("Verloren!"); break;
 			default: System.out.println("Eingabe muss 1, 2 oder 3 sein. Bitte versuchen Sie es erneut!"); break;
 		}
 	}
