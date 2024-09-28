@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Diese Klasse realisiert ein Stein-Schere-Papier Spiel. Der Benutzer waehlt
+ * Diese Klasse realisiert ein Stein-Schere-Papier Spiel mit neuen Namen. Der Benutzer waehlt
  * ueber die Konsole eines der drei Symbole. Gespielt wird gegen den Computer,
  * fuer diesen wird ein Symbol automatisch festgelegt. Der Gewinner des Matches
  * wird ermittelt und auf der Konsole ausgegeben.
@@ -19,9 +19,9 @@ import java.util.Scanner;
 
 public class SteinScherePapier {
 	// alle SteinScherePapier Objekte teilen diese 3 Attribute
-	private static final int STEIN = 1;
-	private static final int SCHERE = 2;
-	private static final int PAPIER = 3;
+	private static final int DRACHE = 1;
+	private static final int EINHORN = 2;
+	private static final int ELBE = 3;
 
 	private int anzahlRunden;
 
@@ -44,8 +44,8 @@ public class SteinScherePapier {
 	 * Schlaegt der Computer den Benutzer, wird "Sie haben leider verloren!" ausgegeben. 
 	 * Hat der Benutzer den Computer geschlagen, wird entsprechend "Herzlichen Glueckwunsch! Sie haben gewonnen!" ausgegeben.
 	 *
-	 * @param benutzerAuswahl		numerischer Wert der Auswahl des Benutzers bspw. 1 fuer Stein
-	 * @param computerAuswahl		numerischer Wert der Auswahl des Computers bspw. 2 fuer Schere
+	 * @param benutzerAuswahl		numerischer Wert der Auswahl des Benutzers bspw. 1 fuer Drache
+	 * @param computerAuswahl		numerischer Wert der Auswahl des Computers bspw. 2 fuer Einhorn
 	 */
 	
 	private void gewinnerErmitteln(int benutzerAuswahl, int computerAuswahl) {
@@ -74,7 +74,7 @@ public class SteinScherePapier {
 		while (gespielteRunden < anzahlRunden) {
 
 			// Auswahl des Benutzers
-			int benutzerAuswahl = intGanzzahl("\nBitte waehlen Sie Stein(1), Schere(2), Papier(3): ");
+			int benutzerAuswahl = intGanzzahl("\nBitte waehlen Sie Drache(1), Einhorn(2), Elbe(3): ");
 
 			// Auswahl des Computers
 			int computerAuswahl = new Random().nextInt(3) + 1;
@@ -97,18 +97,19 @@ public class SteinScherePapier {
 	 * Ermittelt die Auswahl des jeweiligen Symbols anhand des Wertes des Symbols.
 	 *
 	 * @param auswahl	numerischer Wert der jeweiligen Auswahl bspw. 1
-	 * @return Beschreibung der jeweiligen Auswahl bspw. Stein (1)
+	 * @return Beschreibung der jeweiligen Auswahl bspw. Drache (1)
 	 */
 	private String auswahlErmitteln(int auswahl) {
-		if (auswahl == STEIN) {
-			return "Stein (1)";
+		if (auswahl == DRACHE) {
+			return "Drache (1)";
 		} 
-		else if (auswahl == SCHERE) {
-			return "Schere (2)";
+		else if (auswahl == EINHORN) {
+			return "Einhorn (2)";
 		} 
-		else if (auswahl == PAPIER) {
-			return "Papier (3)";
+		else if (auswahl == ELBE) {
+			return "Elbe (3)";
 		}
+		else {
 		else {
 			return "Ungueltige Auswahl (" + auswahl + ")";
 		}
